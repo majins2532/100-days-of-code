@@ -1,13 +1,109 @@
 ### Game Hangman
 import random
 
+hanged_man = [
+        r"""
+  -----
+  |   |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+-------
+""",
+        r"""
+  -----
+  |   |
+  O   |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+-------
+""",
+        r"""
+  -----
+  |   |
+  O   |
+ ---  |
+  |   |
+  |   |
+      |
+      |
+      |
+      |
+-------
+""",
+        r"""
+  -----
+  |   |
+  O   |
+ ---  |
+/ |   |
+  |   |
+      |
+      |
+      |
+      |
+-------
+""",
+        r"""
+  -----
+  |   |
+  O   |
+ ---  |
+/ | \ |
+  |   |
+      |
+      |
+      |
+      |
+-------
+""",
+        r"""
+  -----
+  |   |
+  O   |
+ ---  |
+/ | \ |
+  |   |
+ ---  |
+/     |
+|     |
+      |
+-------
+""",
+        r"""
+  -----
+  |   |
+  O   |
+ ---  |
+/ | \ |
+  |   |
+ ---  |
+/   \ |
+|   | |
+      |
+-------
+""",
+    ]
+
 data = ["hangman","production"]
 data_select = data[random.randint(0,len(data)-1)]
 data_select_list = list(data_select)
 data_ans = ["-"]*len(data_select)
-continue_gmae = 5
+continue_gmae = len(hanged_man)-1
+count = 0
 while True:
     #print(f"HANGMAN = {data_select}")
+    print(f"{hanged_man[count]}")
     print(f"Ans = {''.join(data_ans)}")
     print(f"Continue = {continue_gmae}")
     ans = input("Enter the letters:")
@@ -23,7 +119,9 @@ while True:
 
     if data_select.find(ans) == -1:
         continue_gmae -= 1
+        count += 1
         if continue_gmae == 0:
+            print(f"{hanged_man[count]}")
             print("Your dead!!")
             break
         continue
