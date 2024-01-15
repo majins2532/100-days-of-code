@@ -133,5 +133,8 @@ while True:
         data_select = "".join(data_select_list)
     ### Check Win
     if ''.join(data_ans).find("-") == -1:
+        print("#"*100)
+        print(f"Ans : {''.join(data_ans)}")
         print("Your Win.")
+        print("#"*100)
         break
